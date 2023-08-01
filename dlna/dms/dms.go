@@ -979,7 +979,7 @@ func (srv *Server) Init() (err error) {
 			Device: upnp.Device{
 				DeviceType:   rootDeviceType,
 				FriendlyName: srv.FriendlyName,
-				Manufacturer: "Matt Joiner <anacrolix@gmail.com>",
+				Manufacturer: "SKYBOX STUDIO",
 				ModelName:    rootDeviceModelName,
 				UDN:          srv.rootDeviceUUID,
 				VendorXML: `

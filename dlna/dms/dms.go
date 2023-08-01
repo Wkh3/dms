@@ -25,12 +25,12 @@ import (
 
 	"github.com/anacrolix/log"
 
-	"github.com/anacrolix/dms/dlna"
-	"github.com/anacrolix/dms/soap"
-	"github.com/anacrolix/dms/ssdp"
-	"github.com/anacrolix/dms/transcode"
-	"github.com/anacrolix/dms/upnp"
-	"github.com/anacrolix/dms/upnpav"
+	"github.com/Wkh3/dms/dlna"
+	"github.com/Wkh3/dms/soap"
+	"github.com/Wkh3/dms/ssdp"
+	"github.com/Wkh3/dms/transcode"
+	"github.com/Wkh3/dms/upnp"
+	"github.com/Wkh3/dms/upnpav"
 	"github.com/anacrolix/ffprobe"
 )
 

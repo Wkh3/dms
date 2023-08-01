@@ -12,7 +12,7 @@ import (
 
 	"github.com/anacrolix/log"
 
-	"github.com/anacrolix/dms/misc"
+	"github.com/Wkh3/dms/misc"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package dms
 import (
 	"net/http"
 
-	"github.com/anacrolix/dms/upnp"
+	"github.com/Wkh3/dms/upnp"
 )
 
 type mediaReceiverRegistrarService struct {

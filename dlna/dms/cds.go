@@ -16,10 +16,10 @@ import (
 
 	"github.com/anacrolix/log"
 
-	"github.com/anacrolix/dms/dlna"
-	"github.com/anacrolix/dms/misc"
-	"github.com/anacrolix/dms/upnp"
-	"github.com/anacrolix/dms/upnpav"
+	"github.com/Wkh3/dms/dlna"
+	"github.com/Wkh3/dms/misc"
+	"github.com/Wkh3/dms/upnp"
+	"github.com/Wkh3/dms/upnpav"
 	"github.com/anacrolix/ffprobe"
 )
 

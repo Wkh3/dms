@@ -1,4 +1,4 @@
-module github.com/anacrolix/dms
+module github.com/Wkh3/dms
 
 go 1.16
 

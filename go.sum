@@ -1,6 +1,4 @@
 github.com/RoaringBitmap/roaring v0.4.7/go.mod h1:8khRDP4HmeXns4xIj9oGrKSz7XTQiJx2zgh7AcNke4w=
-github.com/Wkh3/dms v0.0.0-20230801094018-edc8d9be1a91 h1:qZUQJuUDa5KIyw4dugIA+TAxjq6T7e6i6i8XluyzR5A=
-github.com/Wkh3/dms v0.0.0-20230801094018-edc8d9be1a91/go.mod h1:sC4VDi/8chw+X54tfrAu+PenuHdJb/1DkGJEMYLLYkc=
 github.com/anacrolix/envpprof v0.0.0-20180404065416-323002cec2fa/go.mod h1:KgHhUaQMc8cC0+cEflSgCFNFbKwi5h54gqtVn8yhP7c=
 github.com/anacrolix/envpprof v1.0.0 h1:AwZ+mBP4rQ5f7JSsrsN3h7M2xDW/xSE66IPVOqlnuUc=
 github.com/anacrolix/envpprof v1.0.0/go.mod h1:KgHhUaQMc8cC0+cEflSgCFNFbKwi5h54gqtVn8yhP7c=

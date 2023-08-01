@@ -1,9 +1,8 @@
-module github.com/anacrolix/dms
+module github.com/Wkh3/dms
 
 go 1.16
 
 require (
-	github.com/Wkh3/dms v0.0.0-20230801094018-edc8d9be1a91
 	github.com/anacrolix/ffprobe v1.0.0
 	github.com/anacrolix/log v0.13.1
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646

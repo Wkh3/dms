@@ -278,6 +278,7 @@ type Server struct {
 	TranscodeLogPattern string
 	Logger              log.Logger
 	eventingLogger      log.Logger
+	clients             map[string]time.Time
 }
 
 // UPnP SOAP service.
@@ -602,6 +603,7 @@ func (me *Server) serviceControlHandler(w http.ResponseWriter, r *http.Request) 
 		http.Error(w, "forbidden", http.StatusForbidden)
 		return
 	}
+	me.clients[clientIp] = time.Now()
 	soapActionString := r.Header.Get("SOAPACTION")
 	soapAction, err := upnp.ParseActionHTTPHeader(soapActionString)
 	if err != nil {
@@ -936,9 +938,29 @@ func (s *Server) initServices() (err error) {
 	return
 }
 
+func (srv *Server) Clients() []string {
+	expiredIps := []string{}
+	clients := []string{}
+	for ip, lastTime := range srv.clients {
+		now := time.Now()
+		if now.Sub(lastTime) > 10*time.Second {
+			expiredIps = append(expiredIps, ip)
+		} else {
+			clients = append(clients, ip)
+		}
+	}
+
+	for _, it := range expiredIps {
+		delete(srv.clients, it)
+	}
+
+	return clients
+}
+
 func (srv *Server) Init() (err error) {
 	srv.eventingLogger = srv.Logger.WithNames("eventing")
 	srv.eventingLogger.Levelf(log.Debug, "hello %v", "world")
+	srv.clients = make(map[string]time.Time)
 	if err = srv.initServices(); err != nil {
 		return
 	}

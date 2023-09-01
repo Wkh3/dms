@@ -348,10 +348,10 @@ func (me *contentDirectoryService) objectFromID(id string) (o object, err error)
 		o.Path = "/"
 	}
 	o.Path = path.Clean(o.Path)
-	if !path.IsAbs(o.Path) {
-		err = fmt.Errorf("bad ObjectID %v", o.Path)
-		return
-	}
+	// if !path.IsAbs(o.Path) {
+	// 	err = fmt.Errorf("bad ObjectID %v", o.Path)
+	// 	return
+	// }
 	o.RootObjectPath = me.RootObjectPath
 	return
 }

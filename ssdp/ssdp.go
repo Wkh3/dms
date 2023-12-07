@@ -134,7 +134,9 @@ func (me *Server) Init() (err error) {
 	me.closed = make(chan struct{})
 	me.conn, err = makeConn(me.Interface)
 	if me.IPFilter == nil {
-		me.IPFilter = func(net.IP) bool { return true }
+		me.IPFilter = func(ip net.IP) bool {
+			return len(ip) == net.IPv4len
+		}
 	}
 	return
 }
@@ -163,6 +165,7 @@ func (me *Server) Serve() (err error) {
 				panic(fmt.Sprint("unexpected addr type:", addr))
 			}()
 			if !me.IPFilter(ip) {
+				fmt.Printf("filter ip len = %v\n", len(ip))
 				continue
 			}
 			if ip.IsLinkLocalUnicast() {

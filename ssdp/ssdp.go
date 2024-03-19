@@ -165,7 +165,7 @@ func (me *Server) Serve() (err error) {
 				panic(fmt.Sprint("unexpected addr type:", addr))
 			}()
 			if !me.IPFilter(ip) {
-				fmt.Printf("filter ip len = %v\n", len(ip))
+				fmt.Printf("filter ip %v len = %v\n", string(ip), len(ip))
 				continue
 			}
 			if ip.IsLinkLocalUnicast() {

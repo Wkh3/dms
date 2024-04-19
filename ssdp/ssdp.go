@@ -136,7 +136,14 @@ func (me *Server) Init() (err error) {
 	if me.IPFilter == nil {
 		me.IPFilter = func(ip net.IP) bool {
 			ip = ip.To4()
-			return ip != nil
+			if ip == nil {
+				return false
+			}
+			if ip.IsLoopback() {
+				return false
+			}
+
+			return true
 		}
 	}
 	return

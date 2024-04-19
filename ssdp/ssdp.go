@@ -135,7 +135,15 @@ func (me *Server) Init() (err error) {
 	me.conn, err = makeConn(me.Interface)
 	if me.IPFilter == nil {
 		me.IPFilter = func(ip net.IP) bool {
-			return len(ip) == net.IPv4len
+			ip = ip.To4()
+			if ip == nil {
+				return false
+			}
+			if ip.IsLoopback() {
+				return false
+			}
+
+			return true
 		}
 	}
 	return
@@ -165,7 +173,7 @@ func (me *Server) Serve() (err error) {
 				panic(fmt.Sprint("unexpected addr type:", addr))
 			}()
 			if !me.IPFilter(ip) {
-				fmt.Printf("filter ip %v len = %v\n", string(ip), len(ip))
+				fmt.Printf("filter ip %s len = %v\n", ip.String(), len(ip))
 				continue
 			}
 			if ip.IsLinkLocalUnicast() {

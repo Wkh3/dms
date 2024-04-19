@@ -1,4 +1,4 @@
-module github.com/Wkh3/dms
+module github.com/ijingo/dms
 
 go 1.16
 

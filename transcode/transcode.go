@@ -4,6 +4,7 @@ package transcode
 
 import (
 	"fmt"
+	"github.com/ijingo/dms/misc"
 	"io"
 	"os/exec"
 	"runtime"
@@ -12,7 +13,6 @@ import (
 
 	"github.com/anacrolix/log"
 
-	. "github.com/Wkh3/dms/misc"
 	"github.com/anacrolix/ffprobe"
 )
 
@@ -77,11 +77,11 @@ func Transcode(path string, start, length time.Duration, stderr io.Writer) (r io
 		"ffmpeg",
 		"-threads", strconv.FormatInt(int64(runtime.NumCPU()), 10),
 		"-async", "1",
-		"-ss", FormatDurationSexagesimal(start),
+		"-ss", misc.FormatDurationSexagesimal(start),
 	}
 	if length >= 0 {
 		args = append(args, []string{
-			"-t", FormatDurationSexagesimal(length),
+			"-t", misc.FormatDurationSexagesimal(length),
 		}...)
 	}
 	args = append(args, []string{
@@ -104,11 +104,11 @@ func VP8Transcode(path string, start, length time.Duration, stderr io.Writer) (r
 		"avconv",
 		"-threads", strconv.FormatInt(int64(runtime.NumCPU()), 10),
 		"-async", "1",
-		"-ss", FormatDurationSexagesimal(start),
+		"-ss", misc.FormatDurationSexagesimal(start),
 	}
 	if length > 0 {
 		args = append(args, []string{
-			"-t", FormatDurationSexagesimal(length),
+			"-t", misc.FormatDurationSexagesimal(length),
 		}...)
 	}
 	args = append(args, []string{
@@ -125,14 +125,14 @@ func VP8Transcode(path string, start, length time.Duration, stderr io.Writer) (r
 func ChromecastTranscode(path string, start, length time.Duration, stderr io.Writer) (r io.ReadCloser, err error) {
 	args := []string{
 		"ffmpeg",
-		"-ss", FormatDurationSexagesimal(start),
+		"-ss", misc.FormatDurationSexagesimal(start),
 		"-i", path,
 		"-c:v", "libx264", "-preset", "ultrafast", "-profile:v", "high", "-level", "5.0",
 		"-movflags", "+faststart+frag_keyframe+empty_moov",
 	}
 	if length > 0 {
 		args = append(args, []string{
-			"-t", FormatDurationSexagesimal(length),
+			"-t", misc.FormatDurationSexagesimal(length),
 		}...)
 	}
 	args = append(args, []string{
@@ -146,7 +146,7 @@ func ChromecastTranscode(path string, start, length time.Duration, stderr io.Wri
 func WebTranscode(path string, start, length time.Duration, stderr io.Writer) (r io.ReadCloser, err error) {
 	args := []string{
 		"ffmpeg",
-		"-ss", FormatDurationSexagesimal(start),
+		"-ss", misc.FormatDurationSexagesimal(start),
 		"-i", path,
 		"-pix_fmt", "yuv420p",
 		"-c:v", "libx264", "-crf", "25",
@@ -156,7 +156,7 @@ func WebTranscode(path string, start, length time.Duration, stderr io.Writer) (r
 	}
 	if length > 0 {
 		args = append(args, []string{
-			"-t", FormatDurationSexagesimal(length),
+			"-t", misc.FormatDurationSexagesimal(length),
 		}...)
 	}
 	args = append(args, []string{

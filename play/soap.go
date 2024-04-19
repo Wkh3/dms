@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/Wkh3/dms/soap"
+	"github.com/ijingo/dms/soap"
 )
 
 type Browse struct {

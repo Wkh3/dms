@@ -3,7 +3,7 @@ package dms
 import (
 	"net/http"
 
-	"github.com/Wkh3/dms/upnp"
+	"github.com/ijingo/dms/upnp"
 )
 
 type mediaReceiverRegistrarService struct {

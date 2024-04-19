@@ -7,7 +7,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/Wkh3/dms/dlna/dms"
+	"github.com/ijingo/dms/dlna/dms"
 )
 
 func main() {

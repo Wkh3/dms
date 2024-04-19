@@ -16,11 +16,11 @@ import (
 
 	"github.com/anacrolix/log"
 
-	"github.com/Wkh3/dms/dlna"
-	"github.com/Wkh3/dms/misc"
-	"github.com/Wkh3/dms/upnp"
-	"github.com/Wkh3/dms/upnpav"
 	"github.com/anacrolix/ffprobe"
+	"github.com/ijingo/dms/dlna"
+	"github.com/ijingo/dms/misc"
+	"github.com/ijingo/dms/upnp"
+	"github.com/ijingo/dms/upnpav"
 )
 
 const dmsMetadataSuffix = ".dms.json"

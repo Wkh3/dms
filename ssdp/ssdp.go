@@ -135,7 +135,8 @@ func (me *Server) Init() (err error) {
 	me.conn, err = makeConn(me.Interface)
 	if me.IPFilter == nil {
 		me.IPFilter = func(ip net.IP) bool {
-			return len(ip) == net.IPv4len
+			ip = ip.To4()
+			return ip != nil
 		}
 	}
 	return
@@ -164,7 +165,6 @@ func (me *Server) Serve() (err error) {
 				}
 				panic(fmt.Sprint("unexpected addr type:", addr))
 			}()
-			ip = ip.To4()
 			if !me.IPFilter(ip) {
 				fmt.Printf("filter ip %s len = %v\n", ip.String(), len(ip))
 				continue

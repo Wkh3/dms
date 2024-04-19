@@ -25,13 +25,13 @@ import (
 
 	"github.com/anacrolix/log"
 
-	"github.com/Wkh3/dms/dlna"
-	"github.com/Wkh3/dms/soap"
-	"github.com/Wkh3/dms/ssdp"
-	"github.com/Wkh3/dms/transcode"
-	"github.com/Wkh3/dms/upnp"
-	"github.com/Wkh3/dms/upnpav"
 	"github.com/anacrolix/ffprobe"
+	"github.com/ijingo/dms/dlna"
+	"github.com/ijingo/dms/soap"
+	"github.com/ijingo/dms/ssdp"
+	"github.com/ijingo/dms/transcode"
+	"github.com/ijingo/dms/upnp"
+	"github.com/ijingo/dms/upnpav"
 )
 
 // This is used when communicating with other devices, such as over HTTP. I don't imagine we're
